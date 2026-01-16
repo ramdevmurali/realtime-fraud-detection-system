@@ -1,0 +1,18 @@
+data:
+  raw_file: "data/raw/creditcard.csv"
+  scaler_path: "saved_models/scaler.pkl"  # We must save the scaler for the API!
+  test_size: 0.2
+  val_size: 0.2
+  random_state: 42
+
+model:
+  name: "cfd_model_v1"
+  save_path: "saved_models/cfd_model.h5"
+  input_dim: 30  # V1-V28 + Time + Amount
+  learning_rate: 0.001
+  batch_size: 2048  # Large batch size helps with speed on this dataset
+  epochs: 50
+  
+training:
+  patience: 5  # For EarlyStopping
+  threshold: 0.5 # Classification threshold
